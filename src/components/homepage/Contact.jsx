@@ -49,7 +49,7 @@ export default function Contact() {
                         Have an awesome idea? Let&apos;s bring it to life.
                     </h3>
                     <p ref={body} className="mt-4 max-w-md 2xl:max-w-2xl text-body-2 2xl:text-4xl text-accent-100 translate-y-10 opacity-0">
-                        I am currently not available for freelance work. I am accepting new projects starting from February 2022.
+                        I’m always excited to collaborate on innovative projects! Currently bringing ideas to life at <a href="https://techmeraki.com/" className="font-semibold underline">TechMeraki</a>, and open to exploring creative opportunities that push boundaries.
                     </p>
                     <form
                         name="contact"
@@ -143,7 +143,7 @@ export default function Contact() {
                         <h4 className="text-body-1 2xl:text-4xl font-semibold">My Digital Spaces</h4>
                         <div className="space-y-3 text-body-2 2xl:text-3xl">
                             <a
-                                href="https://bento.me/huyng"
+                                href="https://bento.me/dsa"
                                 className="group flex items-center space-x-2"
                                 target="_blank"
                                 rel="noreferrer"
@@ -155,7 +155,7 @@ export default function Contact() {
                                 </div>
                             </a>
                             <a
-                                href="https://github.com/huyngxyz"
+                                href="https://github.com/adhikari-dikshant"
                                 className="group flex items-center space-x-2"
                                 target="_blank"
                                 rel="noreferrer"
@@ -167,7 +167,7 @@ export default function Contact() {
                                 </div>
                             </a>
                             <a
-                                href="https://www.linkedin.com/in/huyng03/"
+                                href="https://www.linkedin.com/in/dikshant-singh-adhikari/"
                                 className="group group flex w-fit items-center space-x-2"
                                 target="_blank"
                                 rel="noreferrer"
@@ -179,7 +179,7 @@ export default function Contact() {
                                 </div>
                             </a>
                             <a
-                                href="https://www.youtube.com/channel/UCBOAB9RV647G93GxLhEXleA"
+                                href="https://x.com/ikshwaku03"
                                 className="group flex items-center space-x-2"
                                 target="_blank"
                                 rel="noreferrer"
