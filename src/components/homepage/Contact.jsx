@@ -35,22 +35,17 @@ export default function Contact() {
     });
 
     return (
-        <section
-            id="contact"
-            className="my-[10%] overflow-hidden"
-            aria-label="contact me"
-        >
-
-
+        <section id="contact" className="my-[10%] overflow-hidden" aria-label="contact me">
             <Heading title="Contact" />
             <div ref={contactSection} className="mt-10 flex flex-col gap-20 md:grid md:grid-cols-6 md:px-12">
                 <div className="col-span-4">
                     <h3 ref={heading} className="max-w-lg 2xl:max-w-3xl text-heading-3 2xl:text-7xl font-semibold leading-tight translate-y-10 opacity-0">
                         Have an awesome idea? Let&apos;s bring it to life.
                     </h3>
-                    <p ref={body} className="mt-4 max-w-md 2xl:max-w-2xl text-body-2 2xl:text-4xl text-accent-100 translate-y-10 opacity-0">
-                        I’m always excited to collaborate on innovative projects! Currently bringing ideas to life at <a href="https://techmeraki.com/" className="font-semibold underline">TechMeraki</a>, and open to exploring creative opportunities that push boundaries.
+                    <p ref={body} className="mt-4 2xl:max-w-2xl text-body-2 2xl:text-4xl text-accent-100 translate-y-10 opacity-0">
+                        I'm always excited to collaborate on innovative projects! Currently bringing ideas to life at <a href="https://techmeraki.com/" className="font-semibold underline">TechMeraki</a>, and open to exploring creative opportunities that push boundaries.
                     </p>
+
                     <form
                         name="contact"
                         action="/contact"
@@ -128,7 +123,7 @@ export default function Contact() {
                         <h4 className="text-body-1 2xl:text-4xl font-semibold">Contact Details</h4>
                         <div className="flex flex-col space-y-3 text-body-2 2xl:text-3xl">
                             <a
-                                href="dikshantsadhikari03@gmail.com"
+                                href="mailto:dikshantsadhikari03@gmail.com"
                                 className="group relative w-fit cursor-pointer"
                                 target="_blank"
                                 rel="noreferrer"
