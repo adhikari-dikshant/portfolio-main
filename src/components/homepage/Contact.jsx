@@ -6,33 +6,82 @@ import Heading from "../ui/Heading";
 
 export default function Contact() {
     const [time, setTime] = useState(new Date().toLocaleTimeString());
+    const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+    const [errors, setErrors] = useState({});
+    const [submitting, setSubmitting] = useState(false);
+    const [success, setSuccess] = useState(false);
 
-    const heading = useRef(null)
-    const body = useRef(null)
-    const contactSection = useRef(null)
+    const heading = useRef(null);
+    const body = useRef(null);
+    const contactSection = useRef(null);
 
     useEffect(() => {
         ScrollTrigger.create({
             trigger: contactSection.current,
             start: "180px bottom",
-
-            // markers: true,
             animation: gsap
                 .timeline()
                 .to(heading.current, { opacity: 1, y: 0, ease: "power4.out", duration: 1.25 }, 0)
                 .to(body.current, { opacity: 1, y: 0, ease: "power4.out", duration: 1.25 }, 0.2),
-
             toggleActions: "play none none none",
         });
         ScrollTrigger.refresh();
-
-    }, [contactSection])
+    }, [contactSection]);
 
     useEffect(() => {
         setInterval(() => {
             setTime(new Date().toLocaleTimeString());
         }, 1000);
-    });
+    }, []);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const validateForm = () => {
+        let newErrors = {};
+        if (!formData.name.trim()) newErrors.name = "Name is required";
+        if (!formData.email.trim()) {
+            newErrors.email = "Email is required";
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            newErrors.email = "Invalid email format";
+        }
+        if (!formData.message.trim()) newErrors.message = "Message is required";
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!validateForm()) return;
+
+        setSubmitting(true);
+        setSuccess(false);
+
+        try {
+            const response = await fetch("https://formspree.io/f/mkgozkda", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                setSuccess(true);
+                setFormData({ name: "", email: "", message: "" }); // Reset form
+                setErrors({});
+            } else {
+                alert("Failed to send message. Please try again later.");
+            }
+        } catch (error) {
+            console.error("Error sending form data:", error);
+            alert("Something went wrong. Please try again later.");
+        }
+
+        setSubmitting(false);
+    };
 
     return (
         <section id="contact" className="my-[10%] overflow-hidden" aria-label="contact me">
@@ -46,75 +95,63 @@ export default function Contact() {
                         I'm always excited to collaborate on innovative projects! Currently bringing ideas to life at <a href="https://techmeraki.com/" className="font-semibold underline">TechMeraki</a>, and open to exploring creative opportunities that push boundaries.
                     </p>
 
-                    <form
-                        name="contact"
-                        action="/contact"
-                        autoComplete="off"
-                        // eslint-disable-next-line react/no-unknown-property
-                        className="mt-10 font-grotesk"
-                        method="POST"
-                    >
-                        <input type="hidden" name="form-name" value="contact" />
+                    {success && (
+                        <p className="mt-4 text-green-500 text-lg">🎉 Your message has been sent successfully!</p>
+                    )}
+
+                    <form onSubmit={handleSubmit} autoComplete="off" className="mt-10 font-grotesk">
                         <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2">
                             <div className="relative z-0">
                                 <input
-                                    required
                                     type="text"
                                     id="name"
                                     name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
                                     className="peer block w-full appearance-none border-0 border-b border-accent-100 bg-transparent px-0 py-2.5 focus:outline-none focus:ring-0"
                                     placeholder=" "
+                                    disabled={submitting}
                                 />
-                                <label
-                                    htmlFor="name"
-                                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 2xl:text-body-2 text-secondary-600 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75"
-                                >
+                                <label htmlFor="name" className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 2xl:text-body-2 text-secondary-600 duration-300">
                                     Your name
                                 </label>
+                                {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
                             </div>
                             <div className="relative z-0">
                                 <input
-                                    required
                                     type="text"
                                     name="email"
                                     id="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
                                     className="peer block w-full appearance-none border-0 border-b border-accent-100 bg-transparent px-0 py-2.5 focus:outline-none focus:ring-0"
                                     placeholder=" "
+                                    disabled={submitting}
                                 />
-                                <label
-                                    htmlFor="email"
-                                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 2xl:text-body-2 text-secondary-600 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75"
-                                >
+                                <label htmlFor="email" className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 2xl:text-body-2 text-secondary-600 duration-300">
                                     Your email
                                 </label>
+                                {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
                             </div>
                             <div className="relative z-0 sm:col-span-2">
                                 <textarea
-                                    required
                                     id="message"
                                     name="message"
                                     rows="5"
+                                    value={formData.message}
+                                    onChange={handleChange}
                                     className="peer block w-full appearance-none border-0 border-b border-accent-100 bg-transparent px-0 py-2.5 focus:outline-none focus:ring-0"
                                     placeholder=" "
+                                    disabled={submitting}
                                 ></textarea>
-                                <label
-                                    htmlFor="message"
-                                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 2xl:text-body-2 text-secondary-600 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75"
-                                >
+                                <label htmlFor="message" className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 2xl:text-body-2 text-secondary-600 duration-300">
                                     Your message
                                 </label>
+                                {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
                             </div>
                         </div>
-                        <button
-                            type="submit"
-                            className="button group mt-10 border duration-200 hover:border-accent-400 hover:bg-transparent"
-                        >
-                            <span className="relative">
-                                <span className="absolute bottom-2 h-1 w-0 bg-secondary-700 opacity-90 duration-300 ease-out group-hover:w-full"></span>
-                                <span className="group-hover:text-accent-400">
-                                    Send Message
-                                </span>
-                            </span>
+                        <button type="submit" className="button group mt-10 border duration-200 hover:border-accent-400 hover:bg-transparent" disabled={submitting}>
+                            {submitting ? "Sending..." : "Send Message"}
                         </button>
                     </form>
                 </div>
