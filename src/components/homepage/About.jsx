@@ -36,7 +36,7 @@ export default function About() {
         // Try using max width to contain the size of the container
         <section ref={aboutSection} aria-label="about me">
             <Heading title="about me" />
-            <div className="mt-10 flex flex-col items-start gap-8 md:flex-row lg:gap-10 ">
+            <div className="mt-md-10 flex flex-col items-start gap-8 md:flex-row lg:gap-10 ">
                 <div className="top-28 overflow-hidden rounded-md md:sticky md:w-1/2">
                     <img
                         ref={profile}
@@ -66,7 +66,7 @@ export default function About() {
                             <strong>Lifter of Heavy Things (mostly to put them back down again)</strong>.
                             <br></br>
                             <br></br>
-                            By day, I’m a <strong>Front-End Engineer & UI/UX Designer</strong>, turning caffeine into{" "}
+                            But when I’m not busy living up to those titles,, I’m a <strong>Front-End Engineer & UI/UX Designer</strong>, turning caffeine into{" "}
                             <strong>sleek, intuitive, and scroll-stopping</strong> digital experiences. I make sure things
                             don’t just <em>work</em>—they <em>feel</em> right. Whether it's writing clean, maintainable code
                             or obsessing over pixel-perfect designs, I live for that sweet spot where <strong>form meets
