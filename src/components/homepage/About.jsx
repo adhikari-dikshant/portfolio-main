@@ -76,10 +76,6 @@ export default function About() {
                             When I’m not designing or coding, you’ll find me geeking out over new tech, fine-tuning UI animations
                             for <em>that perfect feel</em>, hitting the gym, planning my next trek, or staring at my Figma file,
                             convincing myself it's <em>almost done</em>.
-                            <br></br>
-                            <br></br>
-                            <strong>TL;DR:</strong> I design. I code. I break things (sometimes). I lift. I trek. And I make sure the web
-                            looks <em>good</em>.
                         </p>
                     </div>
                 </div>
