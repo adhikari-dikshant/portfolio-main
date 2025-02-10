@@ -66,7 +66,7 @@ export default function About() {
                             <strong>Lifter of Heavy Things (mostly to put them back down again)</strong>.
                             <br></br>
                             <br></br>
-                            But when I’m not busy living up to those titles,, I’m a <strong>Front-End Engineer & UI/UX Designer</strong>, turning caffeine into{" "}
+                            But when I’m not busy living up to those titles, I’m a <strong>Front-End Engineer & UI/UX Designer</strong>, turning caffeine into{" "}
                             <strong>sleek, intuitive, and scroll-stopping</strong> digital experiences. I make sure things
                             don’t just <em>work</em>—they <em>feel</em> right. Whether it's writing clean, maintainable code
                             or obsessing over pixel-perfect designs, I live for that sweet spot where <strong>form meets

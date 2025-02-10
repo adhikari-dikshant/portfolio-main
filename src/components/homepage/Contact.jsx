@@ -84,9 +84,9 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="my-[10%] overflow-hidden" aria-label="contact me">
+        <section id="contact" className="mt-20 overflow-hidden" aria-label="contact me">
             <Heading title="Contact" />
-            <div ref={contactSection} className="mt-10 flex flex-col gap-20 md:grid md:grid-cols-6 md:px-12">
+            <div ref={contactSection} className="mt-2 flex flex-col gap-20 md:grid md:grid-cols-6 md:px-12">
                 <div className="col-span-4">
                     <h3 ref={heading} className="max-w-lg 2xl:max-w-3xl text-heading-3 2xl:text-7xl font-semibold leading-tight translate-y-10 opacity-0">
                         Have an awesome idea? Let&apos;s bring it to life.

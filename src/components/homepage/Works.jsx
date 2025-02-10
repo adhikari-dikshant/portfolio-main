@@ -11,10 +11,10 @@ export default function Works({ forwardedRef }) {
         <section
             ref={forwardedRef}
             id="works"
-            className="nav-change overflow-hidden my-[10%]"
+            className="nav-change overflow-hidden mt-32"
         >
             <Heading title="Projects" />
-            <div className="mt-10 grid grid-cols-1 gap-16 gap-y-10 md:grid-cols-12">
+            <div className=" grid grid-cols-1 gap-16 gap-y-10 md:grid-cols-12">
                 {/* Project #1 */}
                 <div className=" col-span-1 md:col-span-12">
                     <Projects

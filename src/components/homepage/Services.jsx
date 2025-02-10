@@ -21,9 +21,9 @@ export default function Services() {
     ];
 
     return (
-        <section id="services" className="my-[10%]" aria-label="services">
+        <section id="services" className="mt-20" aria-label="services">
             <Heading title="services" />
-            <div className="space-y-14">
+            <div className="">
                 <ServiceUi
                     title="my expertises."
                     description="I’m all about design and the web—pixel-perfect layouts, smooth interactions, and everything in between. My mission? To craft digital experiences that don’t just work but hit different and leave a lasting impact."
