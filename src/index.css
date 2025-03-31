@@ -3,93 +3,118 @@
 @tailwind utilities;
 
 
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #8c8c73 #fafaf9;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #fafaf9;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #8c8c73;
+    border-radius: 10px;
+    border: 3px solid #fafaf9;
+}
 
 @layer base {
 
-  /* *{
+    /* *{
     border: 1px solid red;
   } */
 
-  
-  ::-moz-selection {
-    background: #D1D1C7
-  }
-  ::-webkit-selection {
-    background: #D1D1C7
-  }
-  ::selection {
-    background: #D1D1C7
-  }
 
-  .text-smooth {
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  @font-face {
-    font-family: "CabinetGrotesk-Variable";
-    src: url("./assets/fonts/CabinetGrotesk-Variable.ttf") format("truetype");
-    font-weight: 100 900;
-    font-display: swap;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: "GeneralSans-Variable";
-    src: url("./assets/fonts/GeneralSans-Variable.ttf") format("truetype");
-    font-weight: 200 700;
-    font-display: swap;
-    font-style: normal;
-  }
+    ::-moz-selection {
+        background: #D1D1C7
+    }
+
+    ::-webkit-selection {
+        background: #D1D1C7
+    }
+
+    ::selection {
+        background: #D1D1C7
+    }
+
+    .text-smooth {
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    @font-face {
+        font-family: "CabinetGrotesk-Variable";
+        src: url("./assets/fonts/CabinetGrotesk-Variable.ttf") format("truetype");
+        font-weight: 100 900;
+        font-display: swap;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "GeneralSans-Variable";
+        src: url("./assets/fonts/GeneralSans-Variable.ttf") format("truetype");
+        font-weight: 200 700;
+        font-display: swap;
+        font-style: normal;
+    }
 
 
- @media (min-width: 640px) {
-  * {
-    cursor: none
-  }
-}
-  a,
-  p,
-  span {
-    @apply font-grotesk;
-  }
+    @media (min-width: 640px) {
+        * {
+            cursor: none
+        }
+    }
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    @apply font-general tracking-headings;
-  }
+    a,
+    p,
+    span {
+        @apply font-grotesk;
+    }
 
-  .font-outline-4 {
-    -webkit-text-stroke: 5px black;
-  }
+    h1,
+    h2,
+    h3,
+    h4 {
+        @apply font-general tracking-headings;
+    }
 
-  .font-outline-3 {
-    -webkit-text-stroke: 4px #0E0E0C;
-  }
+    .font-outline-4 {
+        -webkit-text-stroke: 5px black;
+    }
+
+    .font-outline-3 {
+        -webkit-text-stroke: 4px #0E0E0C;
+    }
 }
 
 @layer components {
-  .button {
-    @apply  bg-accent-300 px-8 py-3 text-secondary-200 rounded-full
-  }
+    .button {
+        @apply bg-accent-300 px-8 py-3 text-secondary-200 rounded-full
+    }
 }
 
 @layer utilities {
-  .title {
-    clip-path: polygon(0 0, 200% 0, 100% 100%, 0% 100%);
-    line-height: clamp(6rem, 16vw, 10rem); /* Set the desired line height */
+    .title {
+        clip-path: polygon(0 0, 200% 0, 100% 100%, 0% 100%);
+        line-height: clamp(6rem, 16vw, 10rem);
+        /* Set the desired line height */
 
-  }
+    }
 
-  nav a:hover ~ .cursor {
-    transform: scale(5);
-    opacity: 0;
-  }
+    nav a:hover~.cursor {
+        transform: scale(5);
+        opacity: 0;
+    }
 
-  .section-heading {
-    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
-  }
+    .section-heading {
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+    }
 }
