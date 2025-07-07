@@ -13,7 +13,9 @@ export default function Footer() {
                 <div className="flex space-x-1">
                     <span>&copy;</span>
                     <span>{year}</span>
-                    <span className="font-extrabold uppercase 2xl:text-body-1">Dikshant Singh Adhikari</span>
+                    <span className="font-extrabold uppercase 2xl:text-body-1">
+                        Shoutout to <a href="https://www.byhuy.com/">Huy Nguyen</a>
+                    </span>
                 </div>
             </div>
             <button onClick={toTop} className="col-span-2 flex items-center space-x-2 w-fit group 2xl:text-body-1">
