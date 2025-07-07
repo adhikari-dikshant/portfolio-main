@@ -39,17 +39,16 @@ const ConsoleGreeting = () => {
 
             console.log('%cDeveloper man here!', styles.title);
             console.log(
-                '%cHello there,\n\nMy name is [Your Name], and I love making cool websites. If you have an offer please reach me out though *email* or through the *links* below.\n\nAlso! Check out my portfolio for more interesting projects.',
+                '%cHello there,\n\nMy name is dixcy scott (not underwear ehehheehhehe), and I love making cool websites. If you have an offer please reach me out though *email* or through the *links* below.\n\nAlso! Check out my portfolio for more interesting projects.',
                 styles.message
             );
 
-            console.log('%cMy portfolio:', styles.link, 'https://your-portfolio-url.com');
-            console.log('%cEmail:', styles.link, 'your.email@example.com');
+            
+            console.log('%cEmail:', styles.link, 'dikshantsadhikari03@gmail.com');
 
             console.log('%cSocial Links', styles.socialSection);
-            console.log('%cGitHub:', styles.link, 'https://github.com/yourusername');
-            console.log('%cLinkedIn:', styles.link, 'https://linkedin.com/in/yourusername');
-            console.log('%cFacebook:', styles.link, 'https://facebook.com/yourusername');
+            console.log('%cGitHub:', styles.link, 'https://github.com/adhikari-dikshant');
+            console.log('%cLinkedIn:', styles.link, 'https://linkedin.com/in/dikshant-singh-adhikari');
         };
 
         // Display initial greeting
